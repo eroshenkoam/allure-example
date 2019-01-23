@@ -2,6 +2,8 @@ package io.eroshenkoam.allure;
 
 import io.qameta.allure.Step;
 
+import java.util.Random;
+
 /**
  * @author eroshenkoam (Artem Eroshenko).
  */
@@ -9,6 +11,9 @@ public class BaseSteps {
 
     @Step("Стартуем драйвер")
     public void startDriver() {
+        if (new Random().nextBoolean() && new Random().nextBoolean()) {
+            throw new RuntimeException("Selenium timeout: selenium unavailable now");
+        }
     }
 
     @Step("Останавливаем драйвер")
