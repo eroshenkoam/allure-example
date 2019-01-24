@@ -1,5 +1,6 @@
 package io.eroshenkoam.allure;
 
+import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.AfterEach;
@@ -10,6 +11,7 @@ import org.junit.jupiter.api.Test;
 /**
  * @author eroshenkoam (Artem Eroshenko).
  */
+@Epic("Персонализация")
 @Feature("Избранное")
 public class FavoritesTest {
 
