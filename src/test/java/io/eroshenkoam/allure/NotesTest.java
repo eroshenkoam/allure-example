@@ -1,6 +1,5 @@
 package io.eroshenkoam.allure;
 
-import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Story;
@@ -13,7 +12,6 @@ import org.junit.jupiter.api.Test;
  * @author eroshenkoam (Artem Eroshenko).
  */
 @Owner("eroshenkoam")
-@Epic("Персонализация")
 @Feature("Заметки")
 public class NotesTest {
 
