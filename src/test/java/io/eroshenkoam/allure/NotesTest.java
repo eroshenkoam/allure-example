@@ -6,6 +6,7 @@ import io.qameta.allure.Story;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -25,6 +26,7 @@ public class NotesTest {
     }
 
     @Test
+    @Tag("web")
     @Story("Создание заметки")
     @DisplayName("Создание заметки для авторизованного пользователя")
     public void shouldCreateUserNote() {
@@ -34,6 +36,7 @@ public class NotesTest {
     }
 
     @Test
+    @Tag("web")
     @Story("Создание заметки")
     @DisplayName("Добавление заметки к существующему объявлению")
     public void shouldAddNoteToTheAd() {
@@ -46,6 +49,7 @@ public class NotesTest {
     }
 
     @Test
+    @Tag("web")
     @Story("Удаление заметки")
     @DisplayName("Удаление заметки для авторизованного пользователя")
     public void shouldDeleteUserNote() {

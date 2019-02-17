@@ -6,6 +6,7 @@ import io.qameta.allure.Story;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -25,6 +26,7 @@ public class FavoritesTest {
     }
 
     @Test
+    @Tag("web")
     @Story("Добавление в избранное")
     @DisplayName("Добавление в избранное для авторизованного пользователя")
     public void shouldCreateUserNote() {
@@ -34,6 +36,7 @@ public class FavoritesTest {
     }
 
     @Test
+    @Tag("web")
     @Story("Удаление из избранного")
     @DisplayName("Удаление из избранного для авторизованного пользователя")
     public void shouldDeleteUserNote() {
