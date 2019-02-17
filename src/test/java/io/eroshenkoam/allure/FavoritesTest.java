@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 /**
  * @author eroshenkoam (Artem Eroshenko).
  */
+@Lead("baev")
 @Owner("eroshenkoam")
 @Feature("Избранное")
 public class FavoritesTest {
