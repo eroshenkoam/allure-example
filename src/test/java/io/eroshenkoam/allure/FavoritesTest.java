@@ -28,6 +28,7 @@ public class FavoritesTest {
 
     @Test
     @Tag("web")
+    @JiraIssue("AE-1")
     @Story("Добавление в избранное")
     @DisplayName("Добавление в избранное для авторизованного пользователя")
     public void shouldCreateUserNote() {
@@ -38,6 +39,7 @@ public class FavoritesTest {
 
     @Test
     @Tag("web")
+    @JiraIssue("AE-2")
     @Story("Удаление из избранного")
     @DisplayName("Удаление из избранного для авторизованного пользователя")
     public void shouldDeleteUserNote() {
