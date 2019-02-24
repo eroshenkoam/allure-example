@@ -58,6 +58,7 @@ repositories {
 }
 
 dependencies {
+    compile("commons-io:commons-io:2.6")
     compile("io.qameta.allure:allure-java-commons:2.10.0")
     testCompile("org.junit.jupiter:junit-jupiter-api:5.3.0")
     testCompile("org.junit.jupiter:junit-jupiter-engine:5.3.0")
