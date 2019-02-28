@@ -7,6 +7,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -29,6 +30,7 @@ public class NotesTest {
     @Test
     @Tag("web")
     @Story("Создание заметки")
+    @Tags({@Tag("web"), @Tag("critical"), @Tag("smoke"), @Tag("regress")})
     @DisplayName("Создание заметки для авторизованного пользователя")
     public void shouldCreateUserNote() {
         steps.openNotesPage();
@@ -39,6 +41,7 @@ public class NotesTest {
     @Test
     @Tag("web")
     @Story("Создание заметки")
+    @Tags({@Tag("web"), @Tag("regress")})
     @DisplayName("Добавление заметки к существующему объявлению")
     public void shouldAddNoteToTheAd() {
         final Long id = 12971230L;
@@ -52,6 +55,7 @@ public class NotesTest {
     @Test
     @Tag("web")
     @Story("Удаление заметки")
+    @Tags({@Tag("web"), @Tag("smoke"), @Tag("regress")})
     @DisplayName("Удаление заметки для авторизованного пользователя")
     public void shouldDeleteUserNote() {
         steps.openNotesPage();

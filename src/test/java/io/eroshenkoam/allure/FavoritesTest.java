@@ -7,6 +7,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -27,9 +28,9 @@ public class FavoritesTest {
     }
 
     @Test
-    @Tag("web")
     @JiraIssue("AE-1")
     @Story("Добавление в избранное")
+    @Tags({@Tag("web"), @Tag("regress"), @Tag("smoke")})
     @DisplayName("Добавление в избранное для авторизованного пользователя")
     public void shouldCreateUserNote() {
         steps.openNotesPage();
@@ -41,6 +42,7 @@ public class FavoritesTest {
     @Tag("web")
     @JiraIssue("AE-2")
     @Story("Удаление из избранного")
+    @Tags({@Tag("web"), @Tag("smoke")})
     @DisplayName("Удаление из избранного для авторизованного пользователя")
     public void shouldDeleteUserNote() {
         steps.openNotesPage();
