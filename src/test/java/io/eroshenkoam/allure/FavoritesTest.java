@@ -42,7 +42,7 @@ public class FavoritesTest {
     @Tag("web")
     @JiraIssue("AE-2")
     @Story("Удаление из избранного")
-    @Tags({@Tag("web"), @Tag("smoke")})
+    @Tags({@Tag("web"), @Tag("regress")})
     @DisplayName("Удаление из избранного для авторизованного пользователя")
     public void shouldDeleteUserNote() {
         steps.openNotesPage();

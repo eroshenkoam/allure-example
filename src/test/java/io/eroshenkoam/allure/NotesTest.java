@@ -55,7 +55,7 @@ public class NotesTest {
     @Test
     @Tag("web")
     @Story("Удаление заметки")
-    @Tags({@Tag("web"), @Tag("smoke"), @Tag("regress")})
+    @Tags({@Tag("web"), @Tag("regress")})
     @DisplayName("Удаление заметки для авторизованного пользователя")
     public void shouldDeleteUserNote() {
         steps.openNotesPage();
