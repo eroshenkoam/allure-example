@@ -30,6 +30,7 @@ public class NotesTest {
     @Test
     @Tag("web")
     @Story("Создание заметки")
+    @JiraIssues({@JiraIssue("AE-1"), @JiraIssue("AE-2")})
     @Tags({@Tag("web"), @Tag("critical"), @Tag("smoke"), @Tag("regress")})
     @DisplayName("Создание заметки для авторизованного пользователя")
     public void shouldCreateUserNote() {
@@ -42,6 +43,7 @@ public class NotesTest {
     @Tag("web")
     @Story("Создание заметки")
     @Tags({@Tag("web"), @Tag("regress")})
+    @JiraIssues({@JiraIssue("AE-1"), @JiraIssue("AE-2")})
     @DisplayName("Добавление заметки к существующему объявлению")
     public void shouldAddNoteToTheAd() {
         final Long id = 12971230L;
@@ -56,6 +58,7 @@ public class NotesTest {
     @Tag("web")
     @Story("Удаление заметки")
     @Tags({@Tag("web"), @Tag("regress")})
+    @JiraIssues({@JiraIssue("AE-1"), @JiraIssue("AE-2")})
     @DisplayName("Удаление заметки для авторизованного пользователя")
     public void shouldDeleteUserNote() {
         steps.openNotesPage();

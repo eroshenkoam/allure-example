@@ -28,9 +28,9 @@ public class FavoritesTest {
     }
 
     @Test
-    @JiraIssue("AE-1")
     @Story("Добавление в избранное")
     @Tags({@Tag("web"), @Tag("regress"), @Tag("smoke")})
+    @JiraIssues({@JiraIssue("AE-1"), @JiraIssue("AE-2")})
     @DisplayName("Добавление в избранное для авторизованного пользователя")
     public void shouldCreateUserNote() {
         steps.openNotesPage();
