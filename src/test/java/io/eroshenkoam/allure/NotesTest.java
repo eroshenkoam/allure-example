@@ -15,10 +15,10 @@ import org.junit.jupiter.api.Test;
  */
 @Lead("baev")
 @Owner("baev")
-@Feature("Заметки")
+@Feature("Notes")
 public class NotesTest {
 
-    private static final String NOTE_TEXT = "Хорошая квартира";
+    private static final String NOTE_TEXT = "Cool place";
 
     private final BaseSteps steps = new BaseSteps();
 
@@ -29,10 +29,10 @@ public class NotesTest {
 
     @Test
     @Tag("web")
-    @Story("Создание заметки")
+    @Story("Creating note")
     @JiraIssues({@JiraIssue("AE-1"), @JiraIssue("AE-2")})
     @Tags({@Tag("web"), @Tag("critical"), @Tag("smoke"), @Tag("regress")})
-    @DisplayName("Создание заметки для авторизованного пользователя")
+    @DisplayName("Creating note for authorized user")
     public void shouldCreateUserNote() {
         steps.openNotesPage();
         steps.createNoteWithText(NOTE_TEXT);
@@ -41,10 +41,10 @@ public class NotesTest {
 
     @Test
     @Tag("web")
-    @Story("Создание заметки")
+    @Story("Creating note")
     @Tags({@Tag("web"), @Tag("regress")})
     @JiraIssues({@JiraIssue("AE-1"), @JiraIssue("AE-2")})
-    @DisplayName("Добавление заметки к существующему объявлению")
+    @DisplayName("Adding note to advertisement")
     public void shouldAddNoteToTheAd() {
         final Long id = 12971230L;
 
@@ -56,10 +56,10 @@ public class NotesTest {
 
     @Test
     @Tag("web")
-    @Story("Удаление заметки")
+    @Story("Delete note")
     @Tags({@Tag("web"), @Tag("regress")})
     @JiraIssues({@JiraIssue("AE-1"), @JiraIssue("AE-2")})
-    @DisplayName("Удаление заметки для авторизованного пользователя")
+    @DisplayName("Deleting note for authorized user")
     public void shouldDeleteUserNote() {
         steps.openNotesPage();
         steps.createNoteWithText(NOTE_TEXT);

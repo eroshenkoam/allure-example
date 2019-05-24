@@ -15,10 +15,10 @@ import org.junit.jupiter.api.Test;
  */
 @Lead("baev")
 @Owner("eroshenkoam")
-@Feature("Избранное")
+@Feature("Favorites")
 public class FavoritesTest {
 
-    private static final String NOTE_TEXT = "Хорошая квартира";
+    private static final String NOTE_TEXT = "Cool plase";
 
     private final BaseSteps steps = new BaseSteps();
 
@@ -28,10 +28,10 @@ public class FavoritesTest {
     }
 
     @Test
-    @Story("Добавление в избранное")
+    @Story("Add to favorites")
     @Tags({@Tag("web"), @Tag("regress"), @Tag("smoke")})
     @JiraIssues({@JiraIssue("AE-1"), @JiraIssue("AE-2")})
-    @DisplayName("Добавление в избранное для авторизованного пользователя")
+    @DisplayName("Adding to favorites for authorized user")
     public void shouldCreateUserNote() {
         steps.openNotesPage();
         steps.createNoteWithText(NOTE_TEXT);
@@ -41,9 +41,9 @@ public class FavoritesTest {
     @Test
     @Tag("web")
     @JiraIssue("AE-2")
-    @Story("Удаление из избранного")
+    @Story("Remove from favorites")
     @Tags({@Tag("web"), @Tag("regress")})
-    @DisplayName("Удаление из избранного для авторизованного пользователя")
+    @DisplayName("Removing from favorites for authorized user")
     public void shouldDeleteUserNote() {
         steps.openNotesPage();
         steps.createNoteWithText(NOTE_TEXT);

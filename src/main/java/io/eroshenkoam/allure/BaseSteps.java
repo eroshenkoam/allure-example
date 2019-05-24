@@ -14,45 +14,45 @@ import java.util.Random;
  */
 public class BaseSteps {
 
-    @Step("Стартуем драйвер")
+    @Step("Starting web driver")
     public void startDriver() {
         if (new Random().nextBoolean() && new Random().nextBoolean()) {
             throw new RuntimeException("Selenium timeout: selenium unavailable now");
         }
     }
 
-    @Step("Останавливаем драйвер")
+    @Step("Stopping web driver")
     public void stopDriver() {
     }
 
-    @Step("Открываем страницу заметок")
+    @Step("Open notes page")
     public void openNotesPage() {
         attachPageSource();
     }
 
-    @Step("Создаем заметку с текстом `{text}`")
+    @Step("Creating note with content `{text}`")
     public void createNoteWithText(final String text) {
     }
 
-    @Step("Удаляем заметку с текстом `{text}`")
+    @Step("Delete note with content `{text}`")
     public void deleteNoteWithText(final String text) {
     }
 
-    @Step("Проверяем наличие заметки с текстом `{text}` в списке заметок")
+    @Step("Check note with content `{text}` exists")
     public void notesShouldContainsNoteWithText(final String text) {
 
     }
 
-    @Step("Проверяем отсутствие заметки с текстом `{text}` в списке заметок")
+    @Step("Check note with `{text}` not exists")
     public void notesShouldNotContainsNoteWithText(final String text) {
 
     }
 
-    @Step("Открываем страницу объявления `{id}`")
+    @Step("Open advertisement page `{id}`")
     public void openAdPage(final Long id) {
     }
 
-    @Step("Добавляем заметку с текстом `{text}` к объявлению")
+    @Step("Add note with content `{text}` to advertisement")
     public void addNoteToAdd(final String text) {
     }
 
