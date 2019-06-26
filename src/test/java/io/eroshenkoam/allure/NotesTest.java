@@ -31,7 +31,7 @@ public class NotesTest {
     @Test
     @Tag("web")
     @Story("Creating note")
-    @JiraIssues({@JiraIssue("AE-1"), @JiraIssue("AE-2")})
+    @JiraIssues({@JiraIssue("AE-2")})
     @Tags({@Tag("web"), @Tag("critical"), @Tag("smoke"), @Tag("regress")})
     @DisplayName("Creating note for authorized user")
     public void shouldCreateUserNote() {
@@ -44,7 +44,7 @@ public class NotesTest {
     @Tag("web")
     @Story("Creating note")
     @Tags({@Tag("web"), @Tag("regress")})
-    @JiraIssues({@JiraIssue("AE-1"), @JiraIssue("AE-2")})
+    @JiraIssues({@JiraIssue("AE-1")})
     @DisplayName("Adding note to advertisement")
     public void shouldAddNoteToTheAd() {
         final Long id = 12971230L;
@@ -59,7 +59,7 @@ public class NotesTest {
     @Tag("web")
     @Story("Delete note")
     @Tags({@Tag("web"), @Tag("regress")})
-    @JiraIssues({@JiraIssue("AE-1"), @JiraIssue("AE-2")})
+    @JiraIssues({@JiraIssue("AE-1")})
     @DisplayName("Deleting note for authorized user")
     public void shouldDeleteUserNote() {
         steps.openNotesPage();
