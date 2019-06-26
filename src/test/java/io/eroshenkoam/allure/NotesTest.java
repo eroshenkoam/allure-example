@@ -16,6 +16,7 @@ import org.junit.jupiter.api.Test;
 @Lead("baev")
 @Owner("baev")
 @Feature("Notes")
+@Page("/user/notes")
 public class NotesTest {
 
     private static final String NOTE_TEXT = "Cool place";
