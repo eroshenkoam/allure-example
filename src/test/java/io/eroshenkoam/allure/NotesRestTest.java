@@ -18,7 +18,7 @@ public class NotesRestTest {
     private final RestSteps steps = new RestSteps();
 
     @Test
-    @Story("Add to favorites")
+    @Story("Creating note")
     @Tags({@Tag("api"), @Tag("smoke")})
     @DisplayName("Creating note via api")
     public void shouldCreateUserNote() {
