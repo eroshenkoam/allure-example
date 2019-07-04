@@ -12,7 +12,7 @@ import java.util.Random;
 /**
  * @author eroshenkoam (Artem Eroshenko).
  */
-public class BaseSteps {
+public class WebSteps {
 
     @Step("Starting web driver")
     public void startDriver() {

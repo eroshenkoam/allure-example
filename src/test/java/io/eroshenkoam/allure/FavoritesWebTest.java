@@ -13,15 +13,15 @@ import org.junit.jupiter.api.Test;
 /**
  * @author eroshenkoam (Artem Eroshenko).
  */
-@Lead("baev")
+@Layer("web")
 @Owner("eroshenkoam")
 @Feature("Favorites")
 @Page("/user/favorites")
-public class FavoritesTest {
+public class FavoritesWebTest {
 
-    private static final String NOTE_TEXT = "Cool plase";
+    private static final String NOTE_TEXT = "Cool place";
 
-    private final BaseSteps steps = new BaseSteps();
+    private final WebSteps steps = new WebSteps();
 
     @BeforeEach
     public void startDriver() {
@@ -40,7 +40,6 @@ public class FavoritesTest {
     }
 
     @Test
-    @Tag("web")
     @JiraIssue("AE-2")
     @Story("Remove from favorites")
     @Tags({@Tag("web"), @Tag("regress")})

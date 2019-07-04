@@ -13,15 +13,15 @@ import org.junit.jupiter.api.Test;
 /**
  * @author eroshenkoam (Artem Eroshenko).
  */
-@Lead("baev")
-@Owner("baev")
+@Layer("web")
+@Owner("eroshenkoam")
 @Feature("Notes")
 @Page("/user/notes")
-public class NotesTest {
+public class NotesWebTest {
 
     private static final String NOTE_TEXT = "Cool place";
 
-    private final BaseSteps steps = new BaseSteps();
+    private final WebSteps steps = new WebSteps();
 
     @BeforeEach
     public void startDriver() {
@@ -29,7 +29,6 @@ public class NotesTest {
     }
 
     @Test
-    @Tag("web")
     @Story("Creating note")
     @JiraIssues({@JiraIssue("AE-2")})
     @Tags({@Tag("web"), @Tag("critical"), @Tag("smoke"), @Tag("regress")})
@@ -41,7 +40,6 @@ public class NotesTest {
     }
 
     @Test
-    @Tag("web")
     @Story("Creating note")
     @Tags({@Tag("web"), @Tag("regress")})
     @JiraIssues({@JiraIssue("AE-1")})
@@ -56,7 +54,6 @@ public class NotesTest {
     }
 
     @Test
-    @Tag("web")
     @Story("Delete note")
     @Tags({@Tag("web"), @Tag("regress")})
     @JiraIssues({@JiraIssue("AE-1")})
