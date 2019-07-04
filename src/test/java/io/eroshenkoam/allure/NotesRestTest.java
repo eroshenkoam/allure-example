@@ -20,7 +20,7 @@ public class NotesRestTest {
     @Test
     @Story("Add to favorites")
     @Tags({@Tag("api"), @Tag("smoke")})
-    @DisplayName("Creating note for authorized user")
+    @DisplayName("Creating note via api")
     public void shouldCreateUserNote() {
         steps.createNoteWithText(NOTE_TEXT);
         steps.notesShouldContainsNoteWithText(NOTE_TEXT);
@@ -30,7 +30,7 @@ public class NotesRestTest {
     @Story("Delete note")
     @Tags({@Tag("web"), @Tag("regress")})
     @JiraIssues({@JiraIssue("AE-1")})
-    @DisplayName("Deleting note for authorized user")
+    @DisplayName("Deleting note via api")
     public void shouldDeleteUserNote() {
         steps.createNoteWithText(NOTE_TEXT);
         steps.deleteNoteWithText(NOTE_TEXT);
