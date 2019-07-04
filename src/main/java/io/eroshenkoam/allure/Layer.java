@@ -16,7 +16,7 @@ import java.lang.annotation.Target;
 @Inherited
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD, ElementType.TYPE})
-@LabelAnnotation(name = "jira")
+@LabelAnnotation(name = "layer")
 public @interface Layer {
 
     String value();
