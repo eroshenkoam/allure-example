@@ -53,7 +53,6 @@ tasks.withType(Test::class) {
 
 
 repositories {
-    maven("https://dl.bintray.com/qameta/maven")
     mavenCentral()
 }
 
