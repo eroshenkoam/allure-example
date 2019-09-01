@@ -28,10 +28,10 @@ apply(plugin = "io.qameta.allure")
 configure<AllureExtension> {
     autoconfigure = true
     aspectjweaver = true
-    version = "2.10.0"
+    version = "2.12.1"
 
     useJUnit5 {
-        version = "2.10.0"
+        version = "2.12.1"
     }
 
 }
@@ -49,17 +49,23 @@ tasks.withType(Test::class) {
     }
     systemProperty("junit.jupiter.execution.parallel.enabled", "true")
     systemProperty("junit.jupiter.execution.parallel.config.strategy", "dynamic")
+
+    systemProperty("junit.jupiter.extensions.autodetection.enabled", "true")
 }
 
 
 repositories {
+    maven(url = "https://dl.bintray.com/qameta/maven-unstable/")
     mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
     compile("commons-io:commons-io:2.6")
-    compile("io.qameta.allure:allure-java-commons:2.10.0")
-    testCompile("org.junit.jupiter:junit-jupiter-api:5.3.0")
+    compile("io.qameta.allure:allure-java-commons:2.12.1")
+    compile("org.junit.jupiter:junit-jupiter-api:5.3.0")
     testCompile("org.junit.jupiter:junit-jupiter-engine:5.3.0")
     testCompile("org.junit.jupiter:junit-jupiter-params:5.3.0")
+
+    testCompile("io.qameta.allure:allure-ee-junit-platform:3.15.0")
 }
