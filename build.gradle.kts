@@ -64,8 +64,8 @@ dependencies {
     compile("commons-io:commons-io:2.6")
     compile("io.qameta.allure:allure-java-commons:2.12.1")
     compile("org.junit.jupiter:junit-jupiter-api:5.3.0")
-    testCompile("org.junit.jupiter:junit-jupiter-engine:5.3.0")
-    testCompile("org.junit.jupiter:junit-jupiter-params:5.3.0")
+    compile("org.junit.jupiter:junit-jupiter-engine:5.3.0")
+    compile("org.junit.jupiter:junit-jupiter-params:5.3.0")
 
     testCompile("io.qameta.allure:allure-ee-junit-platform:3.16.0")
 }
