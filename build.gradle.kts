@@ -28,12 +28,15 @@ apply(plugin = "io.qameta.allure")
 configure<AllureExtension> {
     autoconfigure = true
     aspectjweaver = true
-    version = "2.12.1"
+    version = "2.13.1"
 
     useJUnit5 {
-        version = "2.12.1"
+        version = "2.13.1"
     }
 
+    if (project.hasProperty("allure.results")) {
+        project.property("allure.results")?.let { resultsDir = file(it) }
+    }
 }
 
 tasks.withType(JavaCompile::class) {
