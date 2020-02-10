@@ -15,7 +15,7 @@ jobs:
     - uses: actions/checkout@v1
     - run: pwd
     - run: printenv
-    - run: cat /home/runner/work/allure-example/allure-example/builds/env
+    - run: docker ps -a
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1
       with:
