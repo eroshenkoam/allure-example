@@ -6,16 +6,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
     services:
-      test:
-        image: eroshenkoam/github-action
-        volumes:
-          - /home/runner/work/allure-example/allure-example/builds:/builds
-          - /builds:/home/runner/work/allure-example/allure-example/builds
+      nginx:
+        image: nginx
     steps:
     - uses: actions/checkout@v1
-    - run: pwd
-    - run: printenv
-    - run: docker ps -a
+    - run: docker exec $(docker ps -q --filter ancestor=nginx) printenv
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1
       with:
