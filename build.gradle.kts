@@ -67,5 +67,5 @@ dependencies {
     compile("org.junit.jupiter:junit-jupiter-engine:5.3.0")
     compile("org.junit.jupiter:junit-jupiter-params:5.3.0")
 
-    testCompile("io.qameta.allure:allure-ee-junit-platform:3.27.0")
+    testCompile("io.qameta.allure:allure-ee-junit-platform:3.28.2")
 }
