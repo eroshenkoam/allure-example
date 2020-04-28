@@ -6,34 +6,37 @@ import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
+import static io.qameta.allure.Allure.parameter;
 
 @Layer("rest")
 @Owner("baev")
 @Feature("Notes")
 public class NotesRestTest {
 
-    private static final String NOTE_TEXT = "Cool place";
-
     private final RestSteps steps = new RestSteps();
 
-    @Test
     @Story("Creating note")
     @Tags({@Tag("api"), @Tag("smoke")})
-    @DisplayName("Creating note via api")
-    public void shouldCreateUserNote() {
-        steps.createNoteWithText(NOTE_TEXT);
-        steps.notesShouldContainsNoteWithText(NOTE_TEXT);
+    @ParameterizedTest(name = "Creating note via api")
+    @ValueSource(strings = {"First Note", "Second Note"})
+    public void shouldCreateUserNote(String text) {
+        parameter("note", text);
+        steps.createNoteWithText(text);
+        steps.notesShouldContainsNoteWithText(text);
     }
 
-    @Test
     @Story("Delete note")
     @Tags({@Tag("web"), @Tag("regress")})
     @JiraIssues({@JiraIssue("AE-1")})
-    @DisplayName("Deleting note via api")
-    public void shouldDeleteUserNote() {
-        steps.createNoteWithText(NOTE_TEXT);
-        steps.deleteNoteWithText(NOTE_TEXT);
+    @ParameterizedTest(name = "Deleting note via api")
+    @ValueSource(strings = {"First Note", "Second Note"})
+    public void shouldDeleteUserNote(String text) {
+        parameter("note", text);
+        steps.createNoteWithText(text);
+        steps.deleteNoteWithText(text);
     }
 
 
