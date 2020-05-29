@@ -35,7 +35,7 @@ public class PullRequestsWebTest {
     @Story("Create new pull request")
     @Tags({@Tag("web"), @Tag("regress"), @Tag("smoke")})
     @JiraIssues({@JiraIssue("AE-1"), @JiraIssue("AE-2")})
-    @DisplayName("Creating new issue for authorized user")
+    @DisplayName("Create new pull request for authorized user")
     public void shouldCreatePullRequest() {
         steps.openPullRequestsPage(OWNER, REPO);
         steps.createPullRequestFromBranch(BRANCH);
@@ -46,7 +46,7 @@ public class PullRequestsWebTest {
     @JiraIssue("AE-2")
     @Story("Close existing pull request")
     @Tags({@Tag("web"), @Tag("regress")})
-    @DisplayName("Deleting existing issue for authorized user")
+    @DisplayName("Close existing pull request for authorized user")
     public void shouldClosePullRequest() {
         steps.openPullRequestsPage(OWNER, REPO);
         steps.createPullRequestFromBranch(BRANCH);
