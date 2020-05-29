@@ -9,7 +9,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD, ElementType.TYPE})
 @LabelAnnotation(name = "page")
-public @interface Page {
+public @interface PagePath {
 
     String value();
 

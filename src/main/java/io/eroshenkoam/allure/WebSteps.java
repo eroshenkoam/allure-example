@@ -26,41 +26,56 @@ public class WebSteps {
         maybeThrowSeleniumTimeoutException();
     }
 
-    @Step("Open notes page")
-    public void openNotesPage() {
+    @Step("Open issues page `{owner}/{repo}`")
+    public void openIssuesPage(final String owner, final String repo) {
         attachPageSource();
         maybeThrowElementNotFoundException();
     }
 
-    @Step("Creating note with content `{text}`")
-    public void createNoteWithText(final String text) {
+    @Step("Open pull requests page `{owner}/{repo}`")
+    public void openPullRequestsPage(final String owner, final String repo) {
+        attachPageSource();
         maybeThrowElementNotFoundException();
     }
 
-    @Step("Delete note with content `{text}`")
-    public void deleteNoteWithText(final String text) {
-        maybeThrowAssertionException(text);
-    }
-
-    @Step("Check note with content `{text}` exists")
-    public void notesShouldContainsNoteWithText(final String text) {
-        maybeThrowAssertionException(text);
-    }
-
-    @Step("Check note with `{text}` not exists")
-    public void notesShouldNotContainsNoteWithText(final String text) {
-        maybeThrowAssertionException(text);
-
-    }
-
-    @Step("Open advertisement page `{id}`")
-    public void openAdPage(final Long id) {
+    @Step("Create pull request from branch `{branch}`")
+    public void createPullRequestFromBranch(final String branch) {
         maybeThrowElementNotFoundException();
     }
 
-    @Step("Add note with content `{text}` to advertisement")
-    public void addNoteToAdd(final String text) {
-        maybeThrowElementNotFoundException();
+    @Step("Create issue with title `{title}`")
+    public void createIssueWithTitle(String title) {
+        maybeThrowAssertionException(title);
+    }
+
+    @Step("Close pull request for branch `{branch}`")
+    public void closePullRequestForBranch(final String branch) {
+        maybeThrowAssertionException(branch);
+    }
+
+    @Step("Close issue with title `{title}`")
+    public void closeIssueWithTitle(final String title) {
+        maybeThrowAssertionException(title);
+    }
+
+    @Step("Check pull request for branch `{branch}` exists")
+    public void shouldSeePullRequestForBranch(final String branch) {
+        maybeThrowAssertionException(branch);
+    }
+
+    @Step("Check issue with title `{title}` exists")
+    public void shouldSeeIssueWithTitle(final String title) {
+        maybeThrowAssertionException(title);
+    }
+
+    @Step("Check pull request for branch `{branch}` not exists")
+    public void shouldNotSeePullRequestForBranch(final String branch) {
+        maybeThrowAssertionException(branch);
+    }
+
+    @Step("Check issue with title `{title}` not exists")
+    public void shouldNotSeeIssueWithTitle(final String title) {
+        maybeThrowAssertionException(title);
     }
 
     @Attachment(value = "Page", type = "text/html", fileExtension = "html")
@@ -80,8 +95,13 @@ public class WebSteps {
     }
 
     private void maybeThrowElementNotFoundException() {
-        if (isTimeToThrowException()) {
-            throw new RuntimeException("Element not found for xpath [//div[@class='something']]");
+        try {
+            Thread.sleep(1000);
+            if (isTimeToThrowException()) {
+                throw new RuntimeException("Element not found for xpath [//div[@class='something']]");
+            }
+        } catch (InterruptedException e) {
+            //do nothing, it's dummy test
         }
     }
 

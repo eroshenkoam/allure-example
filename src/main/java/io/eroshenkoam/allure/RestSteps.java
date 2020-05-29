@@ -6,21 +6,21 @@ import static io.qameta.allure.Allure.step;
 
 public class RestSteps {
 
-    @Step("Creating note with content `{text}`")
-    public void createNoteWithText(final String text) {
-        step("POST /api/notes");
+    @Step("Create issue with title `{title}`")
+    public void createIssueWithTitle(final String owner, final String repo, final String title) {
+        step(String.format("POST /repos/%s/%s/issues", owner, repo));
     }
 
-    @Step("Delete note with content `{text}`")
-    public void deleteNoteWithText(final String text) {
-        step("GET /api/notes?text=" + text);
-        step("DELETE /api/notes/237");
+    @Step("Close issue with title `{title}`")
+    public void closeIssueWithTitle(final String owner, final String repo, final String title) {
+        step(String.format("GET /repos/%s/%s/issues?text=%s", owner, repo, title));
+        step(String.format("PATCH /repos/%s/%s/issues/%s", owner, repo, 10));
     }
 
-    @Step("Check note with content `{text}` exists")
-    public void notesShouldContainsNoteWithText(final String text) {
-        step("GET /api/notes?text=" + text);
-        step("GET /api/notes/834");
+    @Step("Check note with content `{title}` exists")
+    public void shouldSeeIssueWithTitle(final String owner, final String repo, final String title) {
+        step(String.format("GET /repos/%s/%s/issues?text=%s", owner, repo, title));
+        step(String.format("GET /repos/%s/%s/issues/%s", owner, repo, 10));
     }
 
 }
