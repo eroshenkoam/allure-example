@@ -1,4 +1,5 @@
 import io.qameta.allure.gradle.AllureExtension
+import org.gradle.api.tasks.testing.logging.TestLogEvent
 
 buildscript {
     repositories {
