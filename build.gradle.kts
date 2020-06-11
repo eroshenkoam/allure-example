@@ -51,6 +51,11 @@ tasks.withType(Test::class) {
     systemProperty("junit.jupiter.execution.parallel.config.strategy", "dynamic")
 
     systemProperty("junit.jupiter.extensions.autodetection.enabled", "true")
+    testLogging {
+        setEvents(
+            listOf(TestLogEvent.FAILED, TestLogEvent.SKIPPED, TestLogEvent.PASSED)   
+        )
+    }
 }
 
 
