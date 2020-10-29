@@ -10,6 +10,7 @@ import java.nio.charset.Charset;
 import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 /**
  * @author eroshenkoam (Artem Eroshenko).
@@ -90,7 +91,7 @@ public class WebSteps {
 
     private void maybeThrowSeleniumTimeoutException() {
         if (isTimeToThrowException()) {
-            throw new RuntimeException("Selenium timeout: selenium unavailable now");
+            fail(webDriverIsNotReachable("Allure"));
         }
     }
 
@@ -98,7 +99,7 @@ public class WebSteps {
         try {
             Thread.sleep(1000);
             if (isTimeToThrowException()) {
-                throw new RuntimeException("Element not found for xpath [//div[@class='something']]");
+                fail(elementNotFoundMessage("[//div[@class='something']]"));
             }
         } catch (InterruptedException e) {
             //do nothing, it's dummy test
@@ -107,7 +108,7 @@ public class WebSteps {
 
     private void maybeThrowAssertionException(String text) {
         if (isTimeToThrowException()) {
-            assertEquals(text, "another text");
+            fail(textEqual(text, "another text"));
         }
     }
 
@@ -116,5 +117,29 @@ public class WebSteps {
                 && new Random().nextBoolean()
                 && new Random().nextBoolean()
                 && new Random().nextBoolean();
+    }
+
+    private String webDriverIsNotReachable(final String text) {
+        return String.format("WebDriverException: chrome not reachable\n" +
+                "Element not found {By.xpath: //a[@href='/eroshenkoam/allure-example']}\n" +
+                "Expected: text '%s'\n" +
+                "Page source: file:/Users/eroshenkoam/Developer/eroshenkoam/webdriver-coverage-example/build/reports/tests/1603973861960.0.html\n" +
+                "Timeout: 4 s.", text);
+    }
+
+    private String textEqual(final String expected, final String actual) {
+        return String.format("Element should text '%s' {By.xpath: //a[@href='/eroshenkoam/allure-example']}\n" +
+                "Element: '<a class=\"v-align-middle\">%s</a>'\n" +
+                "Screenshot: file:/Users/eroshenkoam/Developer/eroshenkoam/webdriver-coverage-example/build/reports/tests/1603973703632.0.png\n" +
+                "Page source: file:/Users/eroshenkoam/Developer/eroshenkoam/webdriver-coverage-example/build/reports/tests/1603973703632.0.html\n" +
+                "Timeout: 4 s.\n", expected, actual);
+    }
+
+    private String elementNotFoundMessage(String selector) {
+        return String.format("Element not found {By.xpath: %s}\n" +
+                "Expected: visible or transparent: visible or have css value opacity=0\n" +
+                "Screenshot: file:/Users/eroshenkoam/Developer/eroshenkoam/webdriver-coverage-example/build/reports/tests/1603973516437.0.png\n" +
+                "Page source: file:/Users/eroshenkoam/Developer/eroshenkoam/webdriver-coverage-example/build/reports/tests/1603973516437.0.html\n" +
+                "Timeout: 4 s.\n", selector);
     }
 }

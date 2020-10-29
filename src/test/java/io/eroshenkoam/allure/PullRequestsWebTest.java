@@ -16,7 +16,6 @@ import org.junit.jupiter.api.Test;
 @Layer("web")
 @Owner("eroshenkoam")
 @Feature("Pull Requests")
-@PagePath("/{org}/{repo}/pulls")
 public class PullRequestsWebTest {
 
     private static final String OWNER = "allure-framework";
@@ -32,6 +31,7 @@ public class PullRequestsWebTest {
     }
 
     @Test
+    @Microservice("Billing")
     @Story("Create new pull request")
     @Tags({@Tag("web"), @Tag("regress"), @Tag("smoke")})
     @JiraIssues({@JiraIssue("AE-1"), @JiraIssue("AE-2")})
@@ -44,6 +44,7 @@ public class PullRequestsWebTest {
 
     @Test
     @JiraIssue("AE-2")
+    @Microservice("Repository")
     @Story("Close existing pull request")
     @Tags({@Tag("web"), @Tag("regress")})
     @DisplayName("Deleting existing issue for authorized user")

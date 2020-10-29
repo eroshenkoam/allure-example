@@ -13,7 +13,6 @@ import static io.qameta.allure.Allure.parameter;
 @Layer("rest")
 @Owner("baev")
 @Feature("Issues")
-@UrlPath("/repos/{owner}/{repo}/issues")
 public class IssuesRestTest {
 
     private static final String OWNER = "allure-framework";
@@ -22,6 +21,7 @@ public class IssuesRestTest {
     private final RestSteps steps = new RestSteps();
 
     @Story("Create new issue")
+    @Microservice("Billing")
     @Tags({@Tag("api"), @Tag("smoke")})
     @ParameterizedTest(name = "Create issue via api")
     @ValueSource(strings = {"First Note", "Second Note"})
@@ -35,6 +35,7 @@ public class IssuesRestTest {
     }
 
     @Story("Close existing issue")
+    @Microservice("Repository")
     @Tags({@Tag("web"), @Tag("regress")})
     @JiraIssues({@JiraIssue("AE-1")})
     @ParameterizedTest(name = "Close issue via api")

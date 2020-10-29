@@ -16,7 +16,6 @@ import org.junit.jupiter.api.Test;
 @Layer("web")
 @Owner("eroshenkoam")
 @Feature("Issues")
-@PagePath("/{org}/{repo}/issues")
 public class IssuesWebTest {
 
     private static final String OWNER = "allure-framework";
@@ -32,6 +31,7 @@ public class IssuesWebTest {
     }
 
     @Test
+    @Microservice("Billing")
     @Story("Create new issue")
     @JiraIssues({@JiraIssue("AE-2")})
     @Tags({@Tag("web"), @Tag("critical")})
@@ -43,6 +43,7 @@ public class IssuesWebTest {
     }
 
     @Test
+    @Microservice("Repository")
     @Story("Create new issue")
     @Tags({@Tag("web"), @Tag("regress")})
     @JiraIssues({@JiraIssue("AE-1")})
@@ -54,6 +55,7 @@ public class IssuesWebTest {
     }
 
     @Test
+    @Microservice("Repository")
     @Story("Close existing issue")
     @Tags({@Tag("web"), @Tag("regress")})
     @JiraIssues({@JiraIssue("AE-1")})
