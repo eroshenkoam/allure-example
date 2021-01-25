@@ -15,7 +15,11 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - run: ./.allure/allurectl job-run start
+    - run: wget https://dl.bintray.com/qameta/generic/allurectl/1.13.0/allurectl_linux_386 -O ./allurect
+    - run: chmod +x ./allurectl
+    - run: ./allurectl job-run start
+
     - run: ./gradlew test
-    - run: ./.allure/allurectl upload --job-run-child build/allure-results
-    - run: ./.allure/allurectl job-run stop
+
+    - run: ./allurectl upload --job-run-child build/allure-results
+    - run: ./allurectl job-run stop
