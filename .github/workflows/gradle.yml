@@ -6,7 +6,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     env:
-      ALLURE_ENDPOINT: https://2a8da1b260ca.ngrok.io
+      ALLURE_ENDPOINT: ${{ secrets.ALLURE_ENDPOINT }}
       ALLURE_TOKEN: ${{ secrets.ALLURE_TOKEN }}
       ALLURE_PROJECT_ID: ${{ secrets.ALLURE_PROJECT_ID }}
     steps:
@@ -15,8 +15,6 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - run: printenv
-    - run: chmod +x ./.allure/allurectl
     - run: ./.allure/allurectl job-run start
     - run: ./gradlew test
     - run: ./.allure/allurectl upload --job-run-child build/allure-results
