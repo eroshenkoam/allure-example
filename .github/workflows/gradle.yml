@@ -18,5 +18,5 @@ jobs:
     - run: chmod +x ./.allure/allurectl
     - run: ./.allure/allurectl job-run start
     - run: ./gradlew test
-    - run: ./.allure/allurectl upload build/allure-results
+    - run: ./.allure/allurectl upload --job-run-child build/allure-results
     - run: ./.allure/allurectl job-run stop
