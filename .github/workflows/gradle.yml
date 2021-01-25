@@ -11,7 +11,8 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - run: ./.allure/allurect job-run start
+    - run: chmod +x ./.allure/allurectl
+    - run: ./.allure/allurectl job-run start
     - run: ./gradlew test
-    - run: ./.allure/allurect upload build/allure-results
-    - run: ./.allure/allurect job-run stop
+    - run: ./.allure/allurectl upload build/allure-results
+    - run: ./.allure/allurectl job-run stop
