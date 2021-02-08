@@ -11,7 +11,8 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static io.qameta.allure.Allure.parameter;
 
 @Layer("rest")
-@Owner("baev")
+@TA("baev")
+@QA("eroshenkoam")
 @Feature("Issues")
 public class IssuesRestTest {
 
@@ -39,7 +40,7 @@ public class IssuesRestTest {
     @Story("Close existing issue")
     @Microservice("Repository")
     @Tags({@Tag("web"), @Tag("regress")})
-    @JiraIssues({@JiraIssue("AE-1")})
+    @JiraIssues({@JiraIssue("QC3-2")})
     @ParameterizedTest(name = "Close issue via api")
     @ValueSource(strings = {"First Note", "Second Note"})
     public void shouldDeleteUserNote(String title) {

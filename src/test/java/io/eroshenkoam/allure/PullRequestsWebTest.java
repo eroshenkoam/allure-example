@@ -14,7 +14,8 @@ import org.junit.jupiter.api.Test;
  * @author eroshenkoam (Artem Eroshenko).
  */
 @Layer("web")
-@Owner("eroshenkoam")
+@TA("baev")
+@QA("eroshenkoam")
 @Feature("Pull Requests")
 public class PullRequestsWebTest {
 
@@ -35,7 +36,7 @@ public class PullRequestsWebTest {
     @Microservice("Billing")
     @Story("Create new pull request")
     @Tags({@Tag("web"), @Tag("regress"), @Tag("smoke")})
-    @JiraIssues({@JiraIssue("AE-1"), @JiraIssue("AE-2")})
+    @JiraIssues({@JiraIssue("QC3-2"), @JiraIssue("QC3-3")})
     @DisplayName("Creating new issue for authorized user")
     public void shouldCreatePullRequest() {
         steps.openPullRequestsPage(OWNER, REPO);
@@ -45,7 +46,7 @@ public class PullRequestsWebTest {
 
     @Test
     @TM4J("AE-T7")
-    @JiraIssue("AE-2")
+    @JiraIssue("QC3-2")
     @Microservice("Repository")
     @Story("Close existing pull request")
     @Tags({@Tag("web"), @Tag("regress")})
