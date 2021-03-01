@@ -1,4 +1,4 @@
-package io.eroshenkoam.allure;
+package io.qameta.allure;
 
 import io.qameta.allure.LabelAnnotation;
 

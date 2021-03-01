@@ -1,4 +1,4 @@
-package io.eroshenkoam.allure;
+package io.qameta.allure;
 
 import io.qameta.allure.LabelAnnotation;
 
@@ -16,8 +16,8 @@ import java.lang.annotation.Target;
 @Inherited
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD, ElementType.TYPE})
-@LabelAnnotation(name = "layer")
-public @interface Layer {
+@LabelAnnotation(name = "lead")
+public @interface Lead {
 
     String value();
 
