@@ -11,7 +11,6 @@ public class ManualTestCase {
 
     @Test
     @Manual
-    @AllureId("11360")
     @Story("Add to favorites")
     @Feature("Favorites")
     @Tags({@Tag("web"), @Tag("regress"), @Tag("smoke")})
