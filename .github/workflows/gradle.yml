@@ -13,6 +13,10 @@ jobs:
         java-version: 1.8
     - name: Build with Gradle
       run: ./gradlew test
+    - uses: actions/upload-artifact@v2
+      with:
+        name: all-tests
+        path: build/allure-results
 
   single-test:
     runs-on: ubuntu-latest
@@ -24,3 +28,7 @@ jobs:
           java-version: 1.8
       - name: Build with Gradle
         run: ./gradlew test --tests "*IssuesRestTest"
+      - uses: actions/upload-artifact@v2
+        with:
+          name: single-tests
+          path: build/allure-results
