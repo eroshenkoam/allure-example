@@ -28,10 +28,10 @@ apply(plugin = "io.qameta.allure")
 configure<AllureExtension> {
     autoconfigure = true
     aspectjweaver = true
-    version = "2.12.1"
+    version = "2.14.0"
 
     useJUnit5 {
-        version = "2.12.1"
+        version = "2.14.0"
     }
 
 }
@@ -62,7 +62,7 @@ repositories {
 
 dependencies {
     compile("commons-io:commons-io:2.6")
-    compile("io.qameta.allure:allure-java-commons:2.12.1")
+    compile("io.qameta.allure:allure-java-commons:2.14.0")
     compile("org.junit.jupiter:junit-jupiter-api:5.3.0")
     compile("org.junit.jupiter:junit-jupiter-engine:5.3.0")
     compile("org.junit.jupiter:junit-jupiter-params:5.3.0")
