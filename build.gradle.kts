@@ -1,39 +1,24 @@
-import io.qameta.allure.gradle.AllureExtension
-
-buildscript {
-    repositories {
-        maven("https://plugins.gradle.org/m2/")
-    }
-
-    dependencies {
-        classpath("io.qameta.allure:allure-gradle:2.6.0")
-    }
-}
-
-tasks.existing(Wrapper::class) {
-    gradleVersion = "4.10.2"
-    distributionType = Wrapper.DistributionType.ALL
-}
-
-group = "io.eroshenkoam"
+group = "io.eroshenkoam.allure"
 version = version
 
 plugins {
     java
-    maven
+    id("io.qameta.allure") version "2.9.1"
 }
 
-apply(plugin = "io.qameta.allure")
-
-configure<AllureExtension> {
-    autoconfigure = true
-    aspectjweaver = true
-    version = "2.14.0"
-
-    useJUnit5 {
-        version = "2.14.0"
+allure {
+    report {
+        version.set("2.14.0")
     }
-
+    adapter {
+        autoconfigure.set(true)
+        aspectjWeaver.set(true)
+        frameworks {
+            junit5 {
+                adapterVersion.set("2.14.0")
+            }
+        }
+    }
 }
 
 tasks.withType(JavaCompile::class) {
@@ -45,7 +30,6 @@ tasks.withType(JavaCompile::class) {
 tasks.withType(Test::class) {
     ignoreFailures = true
     useJUnitPlatform {
-
     }
     systemProperty("junit.jupiter.execution.parallel.enabled", "true")
     systemProperty("junit.jupiter.execution.parallel.config.strategy", "dynamic")
@@ -55,15 +39,14 @@ tasks.withType(Test::class) {
 
 
 repositories {
-    maven(url = "https://dl.bintray.com/qameta/maven-unstable/")
     mavenCentral()
     mavenLocal()
 }
 
 dependencies {
-    compile("commons-io:commons-io:2.6")
-    compile("io.qameta.allure:allure-java-commons:2.14.0")
-    compile("org.junit.jupiter:junit-jupiter-api:5.7.2")
-    compile("org.junit.jupiter:junit-jupiter-engine:5.7.2")
-    compile("org.junit.jupiter:junit-jupiter-params:5.7.2")
+    implementation("commons-io:commons-io:2.6")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.12.5")
+    implementation("org.junit.jupiter:junit-jupiter-api:5.7.2")
+    implementation("org.junit.jupiter:junit-jupiter-engine:5.7.2")
+    implementation("org.junit.jupiter:junit-jupiter-params:5.7.2")
 }
