@@ -3,7 +3,7 @@ version = version
 
 plugins {
     java
-    id("io.qameta.allure") version "2.9.1"
+    id("io.qameta.allure") version "2.9.4"
 }
 
 allure {
