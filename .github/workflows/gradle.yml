@@ -14,3 +14,5 @@ jobs:
         java-version: '17'
     - name: Build with Gradle
       run: ./gradlew clean test
+    - name: Print Results
+      run: ls -al build/allure-results
