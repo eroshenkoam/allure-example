@@ -60,6 +60,10 @@ repositories {
 }
 
 dependencies {
+    compile("io.github.bonigarcia:webdrivermanager:5.1.0")
+    compile("ru.yandex.qatools.ashot:ashot:1.5.4")
+    compile("com.codeborne:selenide:6.3.4")
+
     compile("commons-io:commons-io:2.6")
     compile("io.qameta.allure:allure-java-commons:2.14.0")
     compile("org.junit.jupiter:junit-jupiter-api:5.7.2")
