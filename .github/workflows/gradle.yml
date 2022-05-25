@@ -3,32 +3,16 @@ name: Java CI
 on: [push]
 
 jobs:
-  all-tests:
+  test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: Set up JDK 1.8
-      uses: actions/setup-java@v1
+    - name: Set up JDK
+      uses: actions/setup-java@v2
       with:
-        java-version: 1.8
+        distribution: 'zulu'
+        java-version: '17'
     - name: Build with Gradle
-      run: ./gradlew test
-    - uses: actions/upload-artifact@v2
-      with:
-        name: all-tests
-        path: build/allure-results
-
-  single-test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v1
-        with:
-          java-version: 1.8
-      - name: Build with Gradle
-        run: ./gradlew test --tests "*IssuesRestTest"
-      - uses: actions/upload-artifact@v2
-        with:
-          name: single-tests
-          path: build/allure-results
+      run: ./gradlew clean test
+    - name: Print Results
+      run: ls -al build/allure-results
