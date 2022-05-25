@@ -8,14 +8,14 @@ version = version
 
 allure {
     report {
-        version.set("2.16.1")
+        version.set("2.18.1")
     }
     adapter {
         autoconfigure.set(true)
         aspectjWeaver.set(true)
         frameworks {
             junit5 {
-                adapterVersion.set("2.16.1")
+                adapterVersion.set("2.18.1")
             }
         }
     }
