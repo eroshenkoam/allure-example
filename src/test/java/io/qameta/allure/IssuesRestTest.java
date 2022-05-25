@@ -5,8 +5,6 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import static io.qameta.allure.Allure.parameter;
-
 @Layer("rest")
 @Owner("baev")
 @Feature("Issues")
@@ -23,11 +21,7 @@ public class IssuesRestTest {
     @Tags({@Tag("api"), @Tag("smoke")})
     @ParameterizedTest(name = "Create issue via api")
     @ValueSource(strings = {"First Note", "Second Note"})
-    public void shouldCreateUserNote(String title) {
-        parameter("owner", OWNER);
-        parameter("repo", REPO);
-        parameter("title", title);
-
+    public void shouldCreateUserNote(@Param(value = "Title") String title) {
         steps.createIssueWithTitle(OWNER, REPO, title);
         steps.shouldSeeIssueWithTitle(OWNER, REPO, title);
     }
@@ -39,11 +33,7 @@ public class IssuesRestTest {
     @JiraIssues({@JiraIssue("AE-1")})
     @ParameterizedTest(name = "Close issue via api")
     @ValueSource(strings = {"First Note", "Second Note"})
-    public void shouldDeleteUserNote(String title) {
-        parameter("owner", OWNER);
-        parameter("repo", REPO);
-        parameter("title", title);
-
+    public void shouldDeleteUserNote(@Param(value = "Title") String title) {
         steps.createIssueWithTitle(OWNER, REPO, title);
         steps.closeIssueWithTitle(OWNER, REPO, title);
     }
