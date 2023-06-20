@@ -16,14 +16,14 @@ public class AuthFacebookTest {
     public void testFacebook() {
         step("Открываем главную страницу");
         step("Выбираем способ авторизации через Facebook");
-        step("Авторизуемся как пользвоатель Artem Eroshenko", () -> {
-            step("Вводим логин random-user@mail.ru");
-            step("Вводим пароль 1231287318273");
+        step("Авторизуемся как пользвоатель Mr. Random", () -> {
+            step("Вводим логин random-user@random.org");
+            step("Вводим пароль 'random-pass'");
             step("Нажимаем кнопку Войти");
         });
         step("Проверяем что авторизовались правильно", () -> {
-            step("Имя пользователя Artem Eroshenko");
-            step("Email пользователя eroshenkoam@gmail.com");
+            step("Имя пользователя Mr. Random");
+            step("Email пользователя random-user@random.org");
             step("Аватарку");
         });
     }

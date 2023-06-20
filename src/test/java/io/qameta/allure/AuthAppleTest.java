@@ -15,14 +15,15 @@ public class AuthAppleTest {
     @Feature("Авторизация")
     public void testSomething() {
         step("Открываем главную страницу");
-        step("Авторизуемся как пользвоатель Artem Eroshenko", () -> {
-            step("Вводим логин eroshenkoam@gmail.com");
+        step("Выбираем способ авторизации Apple");
+        step("Авторизуемся как пользвоатель Mr. Random", () -> {
+            step("Вводим логин random-user@random.org");
             step("Вводим пароль 1239812938123");
             step("Нажимаем кнопку Войти");
         });
         step("Проверяем что авторизовались правильно", () -> {
-            step("Имя пользователя Artem Eroshenko");
-            step("Email пользователя eroshenkoam@gmail.com");
+            step("Имя пользователя Mr. Random");
+            step("Email пользователя random-user@random.org");
             step("Аватарку");
         });
     }
