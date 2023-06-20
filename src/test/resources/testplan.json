@@ -1,0 +1,17 @@
+{
+  "version": "1.0",
+  "tests": [
+    {
+      "id": "809",
+      "selector": "io.qameta.allure.IssuesRestTest.shouldCreateUserNote"
+    },
+    {
+      "id": "811",
+      "selector": "io.qameta.allure.IssuesWebTest.shouldCreateIssue"
+    },
+    {
+      "id": "812",
+      "selector": "io.qameta.allure.IssuesWebTest.shouldAddLabelToIssue"
+    }
+  ]
+}
