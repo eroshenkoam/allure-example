@@ -6,13 +6,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - name: Set up JDK
-      uses: actions/setup-java@v2
+    - uses: actions/checkout@v3
+    - uses: allure-framework/setup-allurectl@v1
       with:
-        distribution: 'zulu'
-        java-version: '17'
-    - name: Build with Gradle
-      run: ./gradlew clean test
-    - name: Print Results
-      run: ls -al build/allure-results
+        allure-endpoint: https://demo.testops.cloud
+        allure-token: ${{ secrets.ALLURE_TOKEN }}
+        allure-project-id: 536
+    - run: docker build . -t autotests
+    - run: docker run autotests ./gradlew clean test
