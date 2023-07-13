@@ -6,3 +6,4 @@ COPY build.gradle.kts /app/build.gradle.kts
 COPY gradlew /app/gradlew
 COPY settings.gradle /app/settings.gradle
 
+WORKDIR /app
