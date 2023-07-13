@@ -1,19 +1,12 @@
 name: Java CI
 
-on: [push]
+on: [ push ]
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: allure-framework/setup-allurectl@v1
-      with:
-        allure-endpoint: https://demo.testops.cloud
-        allure-token: ${{ secrets.ALLURE_TOKEN }}
-        allure-project-id: 536
-    - run: | 
-        printenv
-        which allurectl
-#    - run: docker build . -t autotests
-#    - run: docker run autotests ./gradlew clean test
+      - uses: actions/checkout@v3
+      - run: wget https://github.com/allure-framework/allurectl/releases/latest/download/allurectl_linux_386 ./allurectl
+      - run: docker build . -t autotests
+      - run: docker run autotests allurectl auth login
