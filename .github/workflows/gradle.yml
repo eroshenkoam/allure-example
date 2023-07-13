@@ -12,5 +12,8 @@ jobs:
         allure-endpoint: https://demo.testops.cloud
         allure-token: ${{ secrets.ALLURE_TOKEN }}
         allure-project-id: 536
-    - run: docker build . -t autotests
-    - run: docker run autotests ./gradlew clean test
+    - run: | 
+        printenv
+        which allurectl
+#    - run: docker build . -t autotests
+#    - run: docker run autotests ./gradlew clean test
