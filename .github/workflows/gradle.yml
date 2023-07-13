@@ -7,12 +7,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: | 
+      - name: Download allurectl
+        run: | 
           wget https://github.com/allure-framework/allurectl/releases/latest/download/allurectl_linux_386 -O ./allurectl
           printenv | grep "ALLURE\|GITHUB" > env.list
         env:
           ALLURE_ENDPOINT: https://demo.testops.cloud
           ALLURE_TOKEN: ${{ secrets.ALLURE_TOKEN }}
           ALLURE_PROJECT: 536
-      - run: docker build . -t autotests
-      - run: docker run --env-file env.list autotests allurectl auth login
+      - name: Docker Build
+        run: docker build . -t autotests
+      - name: Docker Run
+        run: | 
+          docker run --env-file env.list autotests \
+                     allurectl watch --results build/allure-results ./gradlew clean test
