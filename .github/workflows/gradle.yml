@@ -7,6 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: wget https://github.com/allure-framework/allurectl/releases/latest/download/allurectl_linux_386 ./allurectl
+      - run: | 
+          wget https://github.com/allure-framework/allurectl/releases/latest/download/allurectl_linux_386 -O ./allurectl
       - run: docker build . -t autotests
       - run: docker run autotests allurectl auth login
