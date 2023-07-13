@@ -20,4 +20,4 @@ jobs:
       - name: Docker Run
         run: | 
           docker run --env-file env.list autotests \
-                     allurectl watch --results build/allure-results ./gradlew clean test -Phello=world
+                     allurectl watch --results build/allure-results -- ./gradlew clean test -Phello=world
