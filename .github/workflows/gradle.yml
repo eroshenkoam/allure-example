@@ -9,5 +9,9 @@ jobs:
       - uses: actions/checkout@v3
       - run: | 
           wget https://github.com/allure-framework/allurectl/releases/latest/download/allurectl_linux_386 -O ./allurectl
-      - run: docker build . -t autotests
-      - run: docker run autotests allurectl auth login
+          printenv | grep "ALLURE\|GITHUB" > env.list
+          cat env.list
+        env:
+          ALLURE_TOKEN: ${{ secrets.ALLURE_TOKEN }}
+#      - run: docker build . -t autotests
+#      - run: docker run autotests allurectl auth login
