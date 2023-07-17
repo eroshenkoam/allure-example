@@ -12,17 +12,20 @@ on:
         required: false
 
 env:
+  ALLURE_ENDPOINT: https://demo.testops.cloud
+  ALLURE_TOKEN: ${{ secrets.ALLURE_TOKEN }}
+  ALLURE_PROJECT_ID: 569
   ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID }}
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-java@v3
-      with:
-        distribution: 'zulu'
-        java-version: '17'
-        cache: 'gradle'
-    - name: Run Tests
-      run: ./gradlew clean test
+      - uses: actions/checkout@v3
+      - uses: allure-framework/setup-allurectl@v1
+        with:
+          allure-endpoint: ${{ env.ALLURE_ENDPOINT }}
+          allure-token: ${{ env.ALLURE_TOKEN }}
+          allure-project-id: ${{ env.ALLURE_PROJECT_ID }}
+      - name: Run Tests
+        run: allurectl watch --results build/allure-results -- ./gradlew clean test
