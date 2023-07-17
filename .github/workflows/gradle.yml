@@ -27,5 +27,14 @@ jobs:
           allure-endpoint: ${{ env.ALLURE_ENDPOINT }}
           allure-token: ${{ env.ALLURE_TOKEN }}
           allure-project-id: ${{ env.ALLURE_PROJECT_ID }}
-      - name: Run Tests
-        run: allurectl watch --results build/allure-results -- ./gradlew clean test
+      - name: Add allurectl to Docker container
+        run: docker build . -t openjdk:8-allurectl
+      - name: Prepare env file for Docker container
+        run: echo "ALLURE_CI_ENV=$(./allurectl ci env --encode)" >> $GITHUB_ENV
+      - name: Run autotests in docker allurectl
+        run: |
+          docker run --volume "$(pwd)":/github/workspace \
+                     --workdir=/github/workspace \
+                     -e ALLURE_CI_ENV=${ALLURE_CI_ENV} \
+                     openjdk:8-allurectl \
+                     allurectl watch --results build/allure-results -- ./gradlew clean test
