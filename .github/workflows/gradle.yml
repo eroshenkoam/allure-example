@@ -30,7 +30,7 @@ jobs:
       - name: Add allurectl to Docker container
         run: docker build . -t openjdk:8-allurectl
       - name: Prepare env file for Docker container
-        run: echo "ALLURE_CI_ENV=$(./allurectl ci env --encode)" >> $GITHUB_ENV
+        run: echo "ALLURE_CI_ENV=$(allurectl ci env --encode)" >> $GITHUB_ENV
       - name: Run autotests in docker allurectl
         run: |
           docker run --volume "$(pwd)":/github/workspace \
