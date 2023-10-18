@@ -30,4 +30,6 @@ jobs:
         allure-token: ${{ secrets.ALLURE_TOKEN }}
         allure-project-id: 1064
     - name: Run Tests
-      run: ./gradlew clean test
+      run: allurectl watch -- ./gradlew clean test
+      env:
+        ALLURE_RESULTS: build/allure-results
