@@ -35,4 +35,30 @@ public class AuthTest {
         });
     }
 
+    @Test
+    @AllureId("6877")
+    @DisplayName("Авторизация через Mircrosoft")
+    public void testMicrosoft() {
+        step("Открываем главную страницу");
+        step("Авторизация через Google", () -> {
+            step("Выбираем способ авторизации через Google");
+            step("Вводим логин eroshenkoam@gmail.com");
+            step("Вводим пароль 1239812391283");
+            step("Нажимаем кноппку Войти");
+        });
+        step("Проверяем что авторизовались", () -> {
+            step("Expected Result", () -> {
+                step("Проверяем А");
+                step("В нижнем левом углу есть иконка пользователя");
+            });
+        });
+        step("Проверяем что данные обновились из Google", () -> {
+            step("Expected Result", () -> {
+                step("Username = eroshenkoam");
+                step("Email = eroshenkoam@gmail.com");
+                step("Name = Artem Eroshenko");
+            });
+        });
+    }
+
 }
