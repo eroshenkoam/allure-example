@@ -51,7 +51,7 @@ public class WebSteps {
 
     @Step("Close pull request for branch `{branch}`")
     public void closePullRequestForBranch(final String branch) {
-        maybeThrowAssertionException(branch);
+        //do not throw exception here
     }
 
     @Step("Close issue with title `{title}`")
