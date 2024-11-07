@@ -51,4 +51,26 @@ public class AuthTest {
         });
     }
 
+    @Test
+    @AllureId("10798")
+    @DisplayName("Авторизация через VK")
+    @Story("Dva")
+    @Owner("eroshenkoam")
+    @Feature("Auth")
+    public void testVK() {
+        step("Открвааем главную страницу");
+        step("Авторизация через Яндекс", () -> {
+            step("Вводим логин eroshenkoam@yandex.ru");
+            step("Вводим пароль 1239812983123");
+            step("Нажимаем кнопку Войти");
+        });
+        step("Проверяем что авторизовались");
+        step("Проверяем что данные пользователя обновиилсь из Яндекс", () -> {
+            step("Expected Result", () -> {
+                step("Имя = Artem Eroshenko");
+                step("Email = eroshenkoam@yandex.ru");
+            });
+        });
+    }
+
 }
